@@ -5,15 +5,17 @@
         :model="formInline"
         @submit="handleSubmit"
         @submit.native.prevent
+        :rules="rules"
+        
       >
-          <a-form-model-item>
-            <a-input v-model="formInline.user" placeholder="账号" style="width:300px">
+          <a-form-model-item ref="user" prop="user">
+            <a-input v-model="formInline.user" placeholder="账号" style="width:300px" >
               <a-icon slot="prefix" type="user" style="color:rgba(0,0,0,.25)" />
             </a-input>
           </a-form-model-item>
           <div></div>
        
-          <a-form-model-item>
+          <a-form-model-item ref="password" prop="password">
             <a-input
               v-model="formInline.password"
               type="password"
@@ -61,7 +63,17 @@ export default {
       formInline: {
         user: "",
         password: ""
-      }
+      },
+       rules: {
+        user: [
+          { required: true, message: '不能为空', trigger: 'blur' },
+          { min: 0, max: 12, message: '最大长度为12', trigger: 'blur' },
+        ],
+        password: [
+          { required: true, message: '不能为空', trigger: 'blur' },
+          { min: 0, max: 12, message: '最大长度为12', trigger: 'blur' },
+        ],
+       }
     };
   },
   methods: {
@@ -82,6 +94,7 @@ export default {
                 { path: url,
                 }
         );
+        alert('登录成功')
         }
         console.log(this.$route)
         this.formInline.user='';

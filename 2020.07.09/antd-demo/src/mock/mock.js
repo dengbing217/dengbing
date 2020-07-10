@@ -3,7 +3,7 @@ import Mock from 'mockjs'
 let UserList=[];
 for (let i = 0; i <30; i++) {
   let template = {
-     'key':i,
+     'key':i+1,
     'uname':12345+i,
     'name': '@cname',
     'post':'post'+i,
@@ -19,10 +19,10 @@ Mock.mock('Userlist.com', 'post',UserList)
 let MoneyList=[];
 for (let i = 0; i <30; i++) {
   let template = {
-     'key':i,
-    'Team number':12345+i,
-    'Team name': '@title',
-    'Valid sign':'有效',
+     'key':i+1,
+    'uname':12345+i,
+    'name': '@title',
+    'post':'有效',
           }
           MoneyList.push(template)
   
