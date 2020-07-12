@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		数组C去重：<div id='duplicate_removal'></div>
+		<br />
+		数组A,B交集：<div id='intersection'></div>
+		<br />
+		数组A,B并集：<div id='Union'></div>
+		<br />
+	</body>
+
+</html>
+<script type="text/javascript">
+	var ListA = [4,1,3,2,6,5];
+	document.write("数组A："+ListA+"<br>");
+	var ListB= [7,6,5,4,1];
+	document.write("数组b："+ListB+"<br>");
+	var ListC= [2, 8, 5, 0, 5, 2, 6, 7, 2];
+	document.write("数组c："+ListC+"<br>");
+	
+	//去重
+	function listRemoveRepeat(c) {
+		var result = [];
+		for(var i = 0; i < c.length; i++) {
+			var flag = true;
+			var temp = c[i];
+			for(var j = i + 1; j < c.length; j++) {
+				if(temp === c[j]) {
+					flag = false;
+					break;
+				}
+			}
+			if(flag) {
+				result.push(temp);
+			}
+		}
+		return result;
+	}
+
+	//交集
+	function listIntersection(a, b) {
+		var result = [];
+		for(var i = 0; i < b.length; i++) {
+			var temp = b[i];
+			for(var j = 0; j < a.length; j++) {
+				if(temp === a[j]) {
+					result.push(temp);
+					break;
+				}
+			}
+		}
+		return result;
+	}
+	//并集
+	function listUnion(a, b) {
+		return listRemoveRepeat(a.concat(b));
+	}
+	var duplicateRemoval=document.getElementById('duplicate_removal');
+	duplicateRemoval.innerHTML=listRemoveRepeat(ListC);
+	var intersection=document.getElementById('intersection');
+	intersection.innerHTML=listIntersection(ListA, ListB);
+	var Union=document.getElementById('Union');
+	Union.innerHTML=listUnion(ListA, ListB);
+	
+</script>

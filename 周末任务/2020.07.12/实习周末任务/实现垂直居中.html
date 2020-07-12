@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div class="mui-content">
+		
+			<div id="logo_wrap">
+				ja实现垂直居中
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.onload = function() {　　
+			var height = document.body.scrollHeight;　　
+			var logo_wrap = document.getElementById("logo_wrap");　　
+			var margin_top = (height - 100) / 2;
+			　　
+			logo_wrap.style.marginTop = margin_top + "px";　　
+		};
+	</script>
+
+</html>
